@@ -8,4 +8,5 @@ run  npm i --save-dev @babel/plugin-transform-runtime @babel/runtime
      
     const url = 'https://templateapi.template'
     const {isLoading,data}=useFetch(url)
+    console.log(data)
 ```
