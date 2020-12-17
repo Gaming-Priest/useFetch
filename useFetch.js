@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
-export const useFetch = () => {
+export const useFetch = (url) => {
    const [isLoading, setIsLoading] = useState(true);
    const [data, setData] = useState([]);
-   try {
-      const getData = async () => {
-         const response = await fetch(url);
-         const data = await response.json();
-         setData(data);
-         setIsLoading(false);
-      }
+   const getData = async () => {
+      const response = await fetch(url);
+      const data = await response.json()
+      .catch(error => { console.log('request time out check your connection'); })
+      setData(data);
+      setIsLoading(false);
    }
-   catch (error) { alert('Request Time out.. Check your connection') }
+
    useEffect(() => {
       getData()
    }, [url]);
