@@ -6,7 +6,7 @@ export const useFetch = (url) => {
    const getData = async () => {
       const response = await fetch(url);
       const data = await response.json()
-      .catch(error => { console.log('request time out check your connection'); })
+      .catch(error => { alert('request time out check your connection')})
       setData(data);
       setIsLoading(false);
    }
